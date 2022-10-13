@@ -7,17 +7,23 @@
 function devolverString(str) {
     // "Return" la string provista: str
     // Tu código:
+    var str = "Hola como estas?";
+    return str;
   }
   
   function suma(x, y) {
     // "x" e "y" son números
     // Suma "x" e "y" juntos y devuelve el valor
     // Tu código:
+    var sumar = x + y;
+    return sumar;
   }
   
   function resta(x, y) {
     // Resta "y" de "x" y devuelve el valor
     // Tu código:
+    var diferencia = x - y;
+    return diferencia;
   }
   
   function multiplica(x, y) {
