@@ -126,3 +126,68 @@ var resultado = array.reduce(function (acumulador, elemento) {
     return acumulador + elemento;
 }, 0);
 console.log(resultado);
+
+
+// Objetos
+// Son parecidos a los arrays(arreglos). Guarda informacion sobre una sola cosa.
+// Se puede asignar cualquier tipo de dato, string, numeros, true false, etc.
+
+//Bucle for ... in (me devuelve todos los datos)
+var usuario = {
+    nombre: 'Andres',
+    contraseña: "hola123",
+    edad: 26,
+    online: true
+}
+for(var key in usuario){
+    console.log(key);
+    console.log(usuario[key]);
+}
+
+
+// This (sirve para especificar donde ir y que dato tomar)
+var usuario = {
+    nombre: 'Andres',
+    contraseña: "hola123",
+    edad: 26,
+    online: true,
+    saludar: function(){
+        return('hola, ' + this.nombre);
+    }
+}
+var nombre = 'Toto Profe';
+
+console.log(usuario.saludar());
+
+
+
+
+// Class (clase) es una plantilla para la creacion de objetos de datos, es un modelo generico.
+
+function Gato(nombre){
+    // El nuevo operador crea un objeto, 'this'
+    this.nombre = nombre;
+    this.maullar = function() {
+        return 'Mi nombre es ' + this.nombre + ' ... Meow!'
+    } 
+    // Devuelve el objeto 'this'
+}
+
+var sam = new Gato('Sam');
+var kitty = new Gato('Kitty');
+console.log(sam.maullar()); // 'Mi nombre es Sam ... Meow!'
+console.log(kitty.maullar()); // 'Mi nombre es Kitty ... Meow!'
+
+
+// Otro ejemplo
+
+var messi = {
+    nombre: 'Lionel',
+    apellido: 'Messi',
+    saluda: function() {
+        console.log('Hola soy Messi');
+    },
+};
+messi.saluda();
+
+
