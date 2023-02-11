@@ -190,4 +190,87 @@ var messi = {
 };
 messi.saluda();
 
+// otro ejemplo, Funcion constructora
 
+var Persona = function(nombre, apellido) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.saluda = function() {
+        console.log('Hola soy ' + this.nombre + ' ' + this.apellido);
+    };
+};
+
+var bart = new Persona('Bart', 'Simpson');
+var messi = new Persona('Lionel', 'Messi');
+console.log(bart);
+console.log(messi);
+bart.saluda();
+messi.saluda();
+
+
+// Prototype
+
+function Usuario(nombre, email) {
+    this.nombre = nombre;
+    this.email = email;
+   }
+   Usuario.prototype.presentacion = function(){
+    return 'Mi nombre es ' + this.nombre + ', mi email es ' + this.email + '.';
+   }
+   let juan = new Usuario('Juan', 'juanperez@mail.com');
+   let antonio = new Usuario('Antonio', 'anton@mail.com');
+   console.log(juan.presentacion()); // Mi nombre es Juan, mi email es juanperez@mail.com.
+   console.log(antonio.presentacion()); // Mi nombre es Antonio, mi email es anton@mail.com.
+
+
+// ejemplo
+var homero = {
+    nombre: 'Homero',
+    apellido: 'Simpson',
+};
+homero.__proto__ == messi; //el proto es para darle permisos de 'admin' para cambiar lo que contiene
+console.log(homero);
+homero.saluda();
+
+// homero -> messi -> persona -> object -> etc (va buscando una cadena hasta buscar el metodo saluda)
+
+
+
+// Object.create - El método create de los objetos nos permite crear un nuevo objeto apartir de un prototype especifico.
+// creamos un objecto con un objeto vacio como proto
+var obj = Object.create({});
+console.log(obj); // Object {}
+// creamos un objeto a partir de un proto de Objeto
+var obj = Object.create(Object.prototype);
+// que es lo mismo que crear un objeto vacio literal
+var obj = {};
+
+
+
+// Object.assign - Nos permite agregar propiedades a un objeto pasado por parámetro
+var obj = {}
+// No es necesario guardar el resultado porque los objetos 
+Object.assign(obj, {nombre:'Emi', apellido:'Chequer'})
+obj.nombre // 'Emi'
+
+
+// Herencia clasica - otra forma de escribir lo mismo
+function Persona(nombre, apellido, ciudad) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.ciudad = ciudad;
+   }
+   Persona.prototype.saludar = function() {
+    console.log('Soy '+ this.nombre +' de '+ this.ciudad);
+   }
+   var Emi = new Persona('Emi', 'Chequer', 'Buenos Aires');
+   Emi.saludar(); // 'Soy Emi de Buenos Aires'
+
+
+   function Alumno(nombre, apellido, ciudad, curso) {
+    // podríamos copiar las mismas propiedades de Persona acá adentro
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.ciudad = ciudad;
+    this.curso = curso
+   }
