@@ -274,3 +274,21 @@ function Persona(nombre, apellido, ciudad) {
     this.ciudad = ciudad;
     this.curso = curso
    }
+
+
+
+   // CALLBACKS
+   // Son funciones que reciben como argumento otra función y pueden
+   //llamarse dentro de la primera. Se denotan por las letras cb.
+
+   function decirHolaAlUsuario(usuario) {
+    return "Hola " + usuario + "!";
+   }
+   function decirAdiosAlUsuario(usuario) {
+    return "Adiós " + usuario + "!";
+   }
+   function crearSaludo(usuario, cb) {
+    return cb(usuario);
+   }
+   crearSaludo("Dan", decirHolaAlUsuario); // 'Hello Dan!'
+   crearSaludo("Dan", decirAdiosAlUsuario); // 'Goodbye Dan!'
